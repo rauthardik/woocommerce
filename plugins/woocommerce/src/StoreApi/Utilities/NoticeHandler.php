@@ -64,7 +64,7 @@ class NoticeHandler {
 		wc_clear_notices();
 
 		foreach ( $error_notices as $error_notice ) {
-			$errors->add( $error_code, wp_strip_all_tags( $error_notice['notice'] ) );
+			$errors->add( $error_code, wp_strip_all_tags( $error_notice['notice'] ), $error_notice['data'] );
 		}
 
 		return $errors;

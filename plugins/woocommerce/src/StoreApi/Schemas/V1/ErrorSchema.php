@@ -48,9 +48,11 @@ class ErrorSchema extends AbstractSchema {
 	 * @return array
 	 */
 	public function get_item_response( $error ) {
+		$error_code = $error->get_error_code();
 		return [
-			'code'    => $this->prepare_html_response( $error->get_error_code() ),
+			'code'    => $this->prepare_html_response( $error_code ),
 			'message' => $this->prepare_html_response( $error->get_error_message() ),
+			'data'	  => $this->prepare_html_response( $error->get_error_data($error_code))
 		];
 	}
 
